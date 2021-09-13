@@ -1,5 +1,6 @@
 package com.supervisors.restapi;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,7 +12,7 @@ public class SupervisorsController {
 	//GET
 	//URI
 	//method - Supervisors
-	@RequestMapping(method=RequestMethod.GET, path="/api/supervisors" )
+	@GetMapping(path="/api/supervisors" )
 	public String supervisors() {
 		
 		return "Supervisors";
