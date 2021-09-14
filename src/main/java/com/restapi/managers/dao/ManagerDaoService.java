@@ -1,9 +1,11 @@
-package com.restapi.managers;
+package com.restapi.managers.dao;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
+
+import com.restapi.managers.Managers;
 
 @Component
 public class ManagerDaoService {
