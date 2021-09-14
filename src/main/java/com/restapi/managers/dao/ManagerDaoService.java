@@ -1,11 +1,15 @@
 package com.restapi.managers.dao;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
 
 import com.restapi.managers.Managers;
+import com.restapi.managers.sorter.FisrtNameSorter;
+import com.restapi.managers.sorter.JurisdictionSorter;
+import com.restapi.managers.sorter.LastNameSorter;
 
 @Component
 public class ManagerDaoService {
@@ -19,10 +23,14 @@ private static int managerCount = 4;
 		managers.add(new Managers(2, "Mary","Smith","","", "John Doe", "Diversity"));
 		managers.add(new Managers(3, "Dwayne","John","","", "Mickey", "Exclusive"));
 		managers.add(new Managers(4, "Dan","Radder","","","John Doe", "Concurrent"));
+		
+		Collections.sort(managers, new JurisdictionSorter()
+				.thenComparing(new LastNameSorter())
+				.thenComparing(new FisrtNameSorter()));
 	}
 	
-	//return a list of all the users
 	public List<Managers> findAll(){
+		
 		return managers;
 	}
 	

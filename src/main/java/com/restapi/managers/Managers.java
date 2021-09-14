@@ -3,6 +3,7 @@ package com.restapi.managers;
 import javax.validation.constraints.Size;
 import javax.validation.constraints.Email;
 
+
 public class Managers {
 	
 	private Integer Id;
@@ -16,7 +17,11 @@ public class Managers {
 	@Email
 	private String emailAddress;
 	private String phoneNumber;
+	
+	@Size(min=2)
 	private String supervisor;
+	
+	@Size(min=1)
 	private String jurisdiction;
 	
 	protected Managers() {
@@ -104,8 +109,6 @@ public class Managers {
 	}
 
 
-
-
 	@Override
 	public String toString() {
 		return "Managers [" + (Id != null ? "Id=" + Id + ", " : "")
@@ -116,6 +119,5 @@ public class Managers {
 				+ (supervisor != null ? "supervisor=" + supervisor + ", " : "")
 				+ (jurisdiction != null ? "jurisdiction=" + jurisdiction : "") + "]";
 	}
-
 	
 }
