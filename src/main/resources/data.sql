@@ -1,0 +1,4 @@
+insert into managers(ID,FIRST_NAME,LAST_NAME,EMAIL_ADDRESS,PHONE_NUMBER,SUPERVISOR,JURISDICTION) values(1001, 'Alicia','McPherson','','','Mickey', 'Personal');
+insert into managers(ID,FIRST_NAME,LAST_NAME,EMAIL_ADDRESS,PHONE_NUMBER,SUPERVISOR,JURISDICTION) values(1002, 'Mary','Smith','','', 'John Doe', 'Diversity');
+insert into managers(ID,FIRST_NAME,LAST_NAME,EMAIL_ADDRESS,PHONE_NUMBER,SUPERVISOR,JURISDICTION) values(1003, 'Dwayne','John','','', 'Mickey', 'Exclusive');
+insert into managers(ID,FIRST_NAME,LAST_NAME,EMAIL_ADDRESS,PHONE_NUMBER,SUPERVISOR,JURISDICTION) values(1004, 'Dan','Radder','','','John Doe', 'Concurrent');

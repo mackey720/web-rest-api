@@ -1,11 +1,20 @@
 package com.restapi.managers;
 
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
 import javax.validation.constraints.Email;
 
-
+@JsonIgnoreProperties(value={"Id", "emailAddress", "phoneNumber", "supervisor"})
+@Entity
 public class Managers {
 	
+	@Id
+	@GeneratedValue
 	private Integer Id;
 	
 	@Size(min=2)
