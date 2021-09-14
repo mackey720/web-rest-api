@@ -1,12 +1,21 @@
 package com.restapi.managers;
 
+import javax.validation.constraints.Size;
+import javax.validation.constraints.Email;
+
 public class Managers {
 	
 	private Integer Id;
+	
+	@Size(min=2)
 	private String firstName;
+	
+	@Size(min=2)
 	private String lastName;
-	private Email emailAddress;
-	private Phone phoneNumber;
+	
+	@Email
+	private String emailAddress;
+	private String phoneNumber;
 	private String supervisor;
 	private String jurisdiction;
 	
@@ -14,16 +23,20 @@ public class Managers {
 		
 	}
 	
-	public Managers(Integer Id, String firstName, String lastName, String supervisor, String jurisdiction) {
+	
+	public Managers(Integer id, @Size(min = 2) String firstName, @Size(min = 2) String lastName,
+			@Email String emailAddress, String phoneNumber, String supervisor, String jurisdiction) {
 		super();
-		this.Id = Id;
+		Id = id;
 		this.firstName = firstName;
-		this.lastName = lastName;	
+		this.lastName = lastName;
+		this.emailAddress = emailAddress;
+		this.phoneNumber = phoneNumber;
 		this.supervisor = supervisor;
 		this.jurisdiction = jurisdiction;
 	}
 
-	
+
 	public Integer getId() {
 		return Id;
 	}
@@ -61,23 +74,22 @@ public class Managers {
 	}
 	
 
-	public Phone getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 
 
-	public void setPhoneNumber(Phone phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 
-	
 
-	public Email getEmailAddress() {
+	public String getEmailAddress() {
 		return emailAddress;
 	}
 
 
-	public void setEmailAddress(Email emailAddress) {
+	public void setEmailAddress(String emailAddress) {
 		this.emailAddress = emailAddress;
 	}
 

@@ -3,6 +3,8 @@ package com.restapi.managers;
 import java.net.URI;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +26,7 @@ public class ManagerResource {
 	}
 	
 	@PostMapping("api/submit")
-	public ResponseEntity<Object> createManager(@RequestBody Managers manager) {
+	public ResponseEntity<Object> createManager(@Valid @RequestBody Managers manager) {
 		
 		Managers savedManager = service.save(manager);
 		
