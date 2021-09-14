@@ -10,18 +10,20 @@ public class Managers {
 	private String supervisor;
 	private String jurisdiction;
 	
-
-	public Managers(Integer Id, String firstName, String lastName, String jurisdiction) {
+	protected Managers() {
+		
+	}
+	
+	public Managers(Integer Id, String firstName, String lastName, String supervisor, String jurisdiction) {
 		super();
 		this.Id = Id;
-		this.jurisdiction = jurisdiction;
 		this.firstName = firstName;
 		this.lastName = lastName;	
+		this.supervisor = supervisor;
+		this.jurisdiction = jurisdiction;
 	}
 
 	
-	
-
 	public Integer getId() {
 		return Id;
 	}

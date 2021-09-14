@@ -13,10 +13,10 @@ private static List<Managers> managers = new ArrayList<>();
 private static int managerCount = 4;
 	
 	static {
-		managers.add(new Managers(1, "Alicia","McPherson", "Personal"));
-		managers.add(new Managers(2, "Mary","Smith", "Diversity"));
-		managers.add(new Managers(3, "Dwayne","John", "Exclusive"));
-		managers.add(new Managers(4, "Dan","Radder", "Concurrent"));
+		managers.add(new Managers(1, "Alicia","McPherson","Mickey", "Personal"));
+		managers.add(new Managers(2, "Mary","Smith", "John Doe", "Diversity"));
+		managers.add(new Managers(3, "Dwayne","John", "Mickey", "Exclusive"));
+		managers.add(new Managers(4, "Dan","Radder", "John Doe", "Concurrent"));
 	}
 	
 	//return a list of all the users
