@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.restapi.managers.dao.ManagerService;
+import com.restapi.managers.service.ManagerService;
 
 
 @RestController
@@ -27,8 +27,9 @@ public class ManagerJPAResource {
 	
 	
 	@GetMapping("/api/managers")
-	public List<Managers> retrieveAllManagers(){
-		return managerRepository.findAll();
+	public List<String> retrieveAllManagers(){
+		List<Managers> managers = managerRepository.findAll();
+		return service.sortManagers(managers);
 	}
 	
 	@PostMapping("api/submit")
