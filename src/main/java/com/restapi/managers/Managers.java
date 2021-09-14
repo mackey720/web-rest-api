@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.validation.constraints.Email;
 
-@JsonIgnoreProperties(value={"Id", "emailAddress", "phoneNumber", "supervisor"})
+@JsonIgnoreProperties(value={"Id", "emailAddress", "phoneNumber"})
 @Entity
 public class Managers {
 	

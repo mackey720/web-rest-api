@@ -15,7 +15,6 @@ import com.restapi.managers.sorter.LastNameSorter;
 public class ManagerService {
 	
 	public List<String> sortManagers(List<Managers> managers){
-		
 		List<String> sortedManagers = new ArrayList<>();
 		
 		Collections.sort(managers, new JurisdictionSorter()
@@ -26,15 +25,15 @@ public class ManagerService {
 		{
 			sortedManagers.add("{" + manager.getJurisdiction() + "}" 
 					+ " - " + "{" + manager.getLastName() + "}" 
-					+ ", " + "{" + manager.getFirstName() + "}"); 
+					+ ", " + "{" + manager.getFirstName() + "}");
 		}
 		
 		return sortedManagers;
 	}
 	
-	public Managers save(Managers manager) {
-		
-		return manager;
+	public void printToConsole(Managers manager) {
+		System.out.println("FrstName: "+ manager.getFirstName() + "\n Last Name: " 
+				+ manager.getLastName() + "\n Supervisor: " + manager.getSupervisor());
 	}
 
 }
