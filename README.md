@@ -15,7 +15,6 @@ Eclipse IDE was used to develop the code and test. PostMan Google chrome extensi
 
 The code can be imported as an existingg Maven project and can be executed by running the ManagersApplication class.
 
-
-- 
+The in-memory database is used to store items retrieved when the api/managers endpoint is called and new items accepted by the POST api/submit endpoint. There was extra work work done in the code beyound requirements, but I left the code in as an extra review. 
 
 
