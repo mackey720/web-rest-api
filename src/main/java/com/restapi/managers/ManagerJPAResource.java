@@ -1,25 +1,22 @@
 package com.restapi.managers;
 
 import java.net.URI;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.restapi.managers.service.ManagerService;
-
 
 @RestController
 public class ManagerJPAResource {
@@ -33,6 +30,7 @@ public class ManagerJPAResource {
 	@Value("${aws.api}")
 	private String strURI;
 	
+	private WebClient webClient;
 	
 	@GetMapping("/api/managers")
 	public List<String> retrieveAllManagers(){
@@ -40,6 +38,7 @@ public class ManagerJPAResource {
 		return service.sortManagers(managers);
 	}
 	
+	/*** RestTemplate deprecated
 	@GetMapping("/api/supervisors")
 	public List<String> retrieveAllSupervisors(){
 		List<Managers> listOfManagers = new ArrayList<>();
@@ -47,6 +46,19 @@ public class ManagerJPAResource {
 		ResponseEntity<List<Managers>> responseEntity = new RestTemplate().exchange(strURI, HttpMethod.GET, null, new ParameterizedTypeReference<List<Managers>>() {});
 		
 		listOfManagers = responseEntity.getBody();	
+		return service.sortManagers(listOfManagers);
+	}
+	***/
+	
+	@GetMapping("api/supervisors")
+	public List<String> retrieveAllSupervisor() {
+		webClient = WebClient.create(strURI);
+		
+		List<Managers> listOfManagers = webClient.get()
+				.retrieve()
+				.bodyToFlux(Managers.class)
+				.collect(Collectors.toList()).share().block();
+				
 		return service.sortManagers(listOfManagers);
 	}
 	
